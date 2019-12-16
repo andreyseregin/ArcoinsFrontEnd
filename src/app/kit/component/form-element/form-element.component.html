@@ -1,0 +1,23 @@
+<div class="form-element">
+  <ng-container *ngIf="type !== 'submit' && label">
+    <label class="form-element__label" [for]="name">
+      {{label}}
+    </label>
+  </ng-container>
+
+  <ng-container *ngIf="type === 'text' || type === 'number' || type === 'email' || type === 'password' || type === 'search'">
+    <input [type]="type" class="form-element__{{type}}" [name]="name" [placeholder]="placeholder || ''" [formControl]="elementFormController">
+  </ng-container>
+
+  <ng-container *ngIf="type === 'checkbox' || type === 'radio'">
+    <input [type]="type" class="form-element__{{type}}" [name]="name" [formControl]="elementFormController">
+  </ng-container>
+
+  <ng-container *ngIf="type === 'textarea'">
+    <textarea class="form-element__textarea" [disabled]="disabled" [placeholder]="placeholder || ''" [formControl]="elementFormController" [name]="name"></textarea>
+  </ng-container>
+
+  <ng-container *ngIf="type === 'submit'">
+    <button class="form-element__submit" [type]="type" [name]="name" (click)="triggerSubmit.emit(true)">{{value}}</button>
+  </ng-container>
+</div>

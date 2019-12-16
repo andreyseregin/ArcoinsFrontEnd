@@ -1,0 +1,3 @@
+<div class="form">
+  <app-form-element *ngFor="let item of formElements" [name]="item.name" [value]="item.value" [formController]="item.formController" [placeholder]="item.placeholder" [disabled]="item.disabled" [label]="item.label" [type]="item.type"></app-form-element>
+</div>
